@@ -63,31 +63,6 @@ for line in infile:
 	alleles['1']=alt
 	genotypes=[c.split(':')[0] for c in col[9:]]
 
-
-	Freedman=False
-	if Freedman:
-		genomefilter=col[7]
-		if '0' in genomefilter:continue
-		#print line,
-		samplefilters=[]
-		for c in col[9:]:
-			if ':' in c:
-				samplefilters.append(c.split(':')[2].rstrip('\n'))
-				#samplefilters.append(c.split(':')[2])
-			else:
-				samplefilters.append('0')
-				#samplefilters.append('0')
-
-		newgenotypes=[]
-		for g,f in zip(genotypes,samplefilters):
-			if f =='0':
-				newgenotypes.append('./.')
-			elif f=='1':
-				newgenotypes.append(g)
-		genotypes=newgenotypes
-		#print samplefilters
-		#print genotypes
-
 	tpedline=[]
 	tpedline.append(ref)
 	tpedline.append(ref)
